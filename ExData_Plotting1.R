@@ -20,6 +20,19 @@ png("plot2.png", width = 480, height = 480)
 plot(dat1$DateTime, dat1$Global_active_power, type = "l", xlab = " ", ylab = "Global Active Power (kilowatts)")
 dev.off()
 
+##Plot 3
+# plotting energy submetering for different days
+png("plot2.png", width = 480, height = 480)
+plot(dat1$DateTime, dat1$Sub_metering_1, type = "l", xlab = " ", ylab = " ", col = "black", ylim = c(-1, 38))
+par(new = T)
+plot(dat1$DateTime, dat1$Sub_metering_2, type = "l", xlab = " ", ylab = " ", col = "red", ylim = c(-1, 38))
+par(new = T)
+plot(dat1$DateTime, dat1$Sub_metering_3, type = "l", xlab = " ", ylab = "Energy sub metering", col = "blue", ylim = c(-1, 38))
+legend("topright", legend=names(dat1[7:9]),
+       col=c("black", "red", "blue"), lty=1, cex=0.8)
+dev.off()
+
+
 ## Plot 4
 png("plot4.png", width = 480, height = 480)
 par(mfcol = c(2, 2)) ## setting a plot grid of 2 by 2
